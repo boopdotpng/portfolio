@@ -1,13 +1,12 @@
 .outer {
-  background-color: #0a0a0a;
   color: #afafaf;
-  padding: 0.75rem;
   gap: 2rem;
   display: grid;
   grid-template-columns: minmax(auto, 35%) 4fr;
+  place-content: center;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 780px) {
   .outer {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -17,11 +16,9 @@
   }
 
   .gradient {
-    /* assuming the gradient class is applied to the second column */
     grid-area: second-column;
   }
 
-  /* Add this class to your first column content */
   .first-column {
     grid-area: first-column;
   }
@@ -30,10 +27,10 @@
 .gradient {
   font-size: 35px;
   font-weight: bold;
-  background-image: linear-gradient(to bottom, blue, red);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
   display: inline-block;
+  background-image: linear-gradient(to bottom, purple, pink);
 }

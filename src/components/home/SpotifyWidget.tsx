@@ -1,15 +1,22 @@
 import ProgressBar from "./ProgressBar";
-import styles from "./spotify.module.css";
-import { SpotifyPlayer } from "../types";
+import { getSpotifyPlayer } from "@/Actions";
 
-export default async function SpotifyWidget(data: SpotifyPlayer) {
-  const averageColor = `rgba(${data.average_color[0]}, ${data.average_color[1]}, ${data.average_color[2]}, 0.6)`;
+export default async function SpotifyWidget() {
+  const data = await getSpotifyPlayer();
 
+  const NoSongPlaying = () => (
+    <div className="text-[#afafaf] text-center">no song playing</div>
+  );
+
+  if (!data.is_playing) {
+    return <NoSongPlaying />;
+  }
+  const averageColor = `rgba(${data.colors.rgb.dominant_color[0]}, ${data.colors.rgb.dominant_color[1]}, ${data.colors.rgb.dominant_color[2]}, 0.6)`;
   return (
     <div
       className="flex flex-col p-4 rounded-md"
       style={{
-        background: `linear-gradient(${averageColor}, #121212 80%)`,
+        background: `linear-gradient(${averageColor}, #242526 80%)`,
         color: "#afafaf",
       }}
     >
@@ -26,15 +33,15 @@ export default async function SpotifyWidget(data: SpotifyPlayer) {
       <div className="flex items-start mb-3">
         <img src={data.cover} alt="Album Cover" className="mr-2 w-16 h-16" />
         <div>
-          <div className="font-semibold text-sm">{data.song}</div>
-          <div className="text-sm">by {data.artist}</div>
-          <div className="text-xs text-gray-400">on {data.album}</div>
+          <div className="font-semibold text-[0.85rem]">{data.song}</div>
+          <div className="text-[0.85rem]">by {data.artist}</div>
+          <div className="text-[0.85rem] text-gray-400">on {data.album}</div>
         </div>
       </div>
       <div className="flex items-center">
         <ProgressBar
           progress_ms={data.progress_ms}
-          duration_ms={3 * 60 * 1000}
+          duration_ms={data.duration_ms}
         />
       </div>
     </div>
