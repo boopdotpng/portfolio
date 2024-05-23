@@ -17,7 +17,7 @@ const ProgressBar: React.FC<SpotifyProgress> = ({
       setProgress((prevProgress) => {
         if (prevProgress >= duration_ms) {
           clearInterval(interval);
-          return duration_ms;
+          return 0;
         }
         return prevProgress + 1000; // update every second
       });

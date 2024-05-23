@@ -1,8 +1,10 @@
 import { Suspense } from "react";
 import SpotifyWidget from "./SpotifyWidget";
 import styles from "@/styles/home.module.css";
+import { getSpotifyPlayer } from "@/Actions";
 
-export default function Home() {
+export default async function Home() {
+  const data = await getSpotifyPlayer();
   return (
     <section className={`${styles.outer} min-h-screen`}>
         <div className="place-content-center">
