@@ -1,9 +1,30 @@
 .outer {
   background-color: #0a0a0a;
   color: #afafaf;
-  grid-template-columns: minmax(auto, 35%) 4fr;
   padding: 0.75rem;
   gap: 2rem;
+  display: grid;
+  grid-template-columns: minmax(auto, 35%) 4fr;
+}
+
+@media (max-width: 600px) {
+  .outer {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "second-column"
+      "first-column";
+  }
+
+  .gradient {
+    /* assuming the gradient class is applied to the second column */
+    grid-area: second-column;
+  }
+
+  /* Add this class to your first column content */
+  .first-column {
+    grid-area: first-column;
+  }
 }
 
 .gradient {
