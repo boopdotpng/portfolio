@@ -38,14 +38,14 @@ const ProgressBar: React.FC<SpotifyProgress> = ({
     <div className="relative w-full">
       <div className="relative w-full h-1 bg-gray-600 rounded-full">
         <div
-          className="absolute top-0 left-0 h-1 bg-white rounded-full"
+          className="absolute top-0 left-0 h-1 bg-[#afafaf] rounded-full"
           style={{
             width: `${progressPercentage}%`,
             transition: "width 0.1s linear",
           }}
         ></div>
       </div>
-      <div className="flex justify-between text-xs text-gray-400 mt-1">
+      <div className="flex justify-between text-xs text-[#afafaf] mt-1">
         <span>{formatTime(progress)}</span>
         <span>{formatTime(duration_ms)}</span>
       </div>
