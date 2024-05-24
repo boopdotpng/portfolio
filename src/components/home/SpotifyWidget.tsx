@@ -1,12 +1,11 @@
+import { SpotifyPlayer } from "@/app/types";
 import ProgressBar from "./ProgressBar";
-import { getSpotifyPlayer } from "@/Actions";
 
-export default async function SpotifyWidget() {
-  const data = await getSpotifyPlayer();
-
+export default async function SpotifyWidget(data: SpotifyPlayer) {
   const NoSongPlaying = () => (
     <div className="text-[#afafaf] text-center">
-      i'm not currently listening to anything!
+      i'm not currently listening to anything! <br />
+      normally, a cool song widget will show up here.
     </div>
   );
 
@@ -33,11 +32,7 @@ export default async function SpotifyWidget() {
         />
       </div>
       <div className="flex items-start mb-3">
-        <img
-          src={data.cover}
-          alt="Album Cover"
-          className="mr-2 w-16 h-16"
-        />
+        <img src={data.cover} alt="Album Cover" className="mr-2 w-16 h-16" />
         <div>
           <div className="font-semibold text-[0.85rem]">{data.song}</div>
           <div className="text-[0.85rem]">by {data.artist}</div>
