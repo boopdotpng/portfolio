@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: minmax(auto, 35%) 4fr;
   place-content: center;
+  min-height: 92vh;
 }
 
 @media (max-width: 780px) {

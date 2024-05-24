@@ -8,7 +8,7 @@ export default async function Home() {
   let textGrad;
   if (data.is_playing) {
     textGrad = {
-      backgroundImage: `linear-gradient(${data.colors.hex.dominant_color}, #676b6b 80%)`,
+      backgroundImage: `linear-gradient(${data.colors.hex.dominant_color}, #c0c4c4 80%)`,
     };
   } else {
     textGrad = {
@@ -16,7 +16,7 @@ export default async function Home() {
     };
   }
   return (
-    <section className={`${styles.outer} min-h-screen`}>
+    <section className={`${styles.outer}`}>
       <div className="place-content-center">
         <Suspense
           fallback={
