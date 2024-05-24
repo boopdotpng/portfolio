@@ -4,7 +4,17 @@
   display: grid;
   grid-template-columns: minmax(auto, 35%) 4fr;
   place-content: center;
-  min-height: 92vh;
+  height: 70vh;
+}
+
+.gradient {
+  font-size: 35px;
+  font-weight: bold;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
 }
 
 @media (max-width: 780px) {
@@ -18,19 +28,10 @@
 
   .gradient {
     grid-area: second-column;
+    font-size: 24px;
   }
 
   .first-column {
     grid-area: first-column;
   }
-}
-
-.gradient {
-  font-size: 35px;
-  font-weight: bold;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
 }

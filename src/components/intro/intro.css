@@ -1,12 +1,12 @@
 .about {
-height: 60vh;
+  height: 60vh;
 }
 
 .about-inner {
   width: 60%;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .about-inner span {
@@ -29,9 +29,21 @@ height: 60vh;
   animation-range-end: cover 70vh;
 }
 
-
 @keyframes scroll-reveal {
- to {
-  background-size: 100% 100%;
- } 
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .about-inner p span {
+    font-size: 16px;
+  }
+  .about-title {
+    font-size: 24px;
+  }
+
+  .about-inner {
+    width: 90%;
+  }
 }
