@@ -15,7 +15,7 @@ export async function getLastFM() {
   const userName = process.env.lastfm_username as string;
   const url = "http://ws.audioscrobbler.com/2.0/";
   const limit = 3;
-  const maxTitleLength = 20;
+  const maxTitleLength = 30;
   const params = new URLSearchParams({
     method: "user.getrecenttracks",
     user: userName,
@@ -31,15 +31,15 @@ export async function getLastFM() {
     if (!data.recenttracks || !data.recenttracks.track)
       throw new Error("No tracks found");
 
-    const tracks = data.recenttracks.track.map((track) => ({
-      name: track.name.substring(0, maxTitleLength),
+    const tracks = data.recenttracks.track.map((track: any) => ({
+      name: track.name.replace(/\(.*$/, ""),
       artist: track.artist["#text"],
       currentlyPlaying:
         !!track["@attr"] && track["@attr"].nowplaying === "true",
     }));
 
     const currentlyPlayingTrack = tracks.find(
-      (track) => track.currentlyPlaying
+      (track: any) => track.currentlyPlaying
     );
     return currentlyPlayingTrack || tracks[0]; // returns the first track if no track is currently playing
   } catch (error) {
