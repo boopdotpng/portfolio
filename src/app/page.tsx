@@ -14,7 +14,7 @@ const projects: ProjectCard[] = [
   {
     name: "senior design 2023-2024",
     url: "https://github.com/boopdotpng/senior-design-23to24",
-    desc: "wrote embedded python software on a raspberry pi for a machine to rewarm vitrified organoids. controlled heating, motors, custom lcd menu, and more.",
+    desc: "wrote embedded python software on a raspberry pi for a machine to rewarm vitrified organoids. it controlled heating, motors, a custom lcd menu, and more.",
     languages: ["python", "c++", "typescript"],
   },
   {
