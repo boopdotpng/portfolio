@@ -19,3 +19,9 @@ export interface SpotifyPlayer {
     };
   };
 }
+
+export interface Track {
+  name: string;
+  artist: string;
+  currentlyPlaying?: boolean;
+}
