@@ -27,8 +27,8 @@ const projects: ProjectCard[] = [
 
 export default async function Main() {
   return (
-    <main className="bg-[#121212] p-[0.5rem] text-[#afafaf] main flex flex-col justify-between items-center min-h-screen">
-      <section className="w-1/2 h-3/4 flex flex-col items-center">
+    <main className="bg-[#121212] p-[0.5rem] text-[#afafaf] flex flex-col justify-between items-center min-h-screen">
+      <section className="md:w-1/2 sm:w-full flex flex-col items-center">
         <h1 className="font-extrabold text-3xl">anuraag</h1>
         <div className="text-center flex gap-1 items-center ">
           charlotte, usa
@@ -43,7 +43,7 @@ export default async function Main() {
         </div>
       </section>
 
-      <section className="w-3/4 grid sm:grid-cols-1 lg:grid-cols-2 gap-2 place-items-center">
+      <section className="md:w-3/4 sm:w-full grid sm:grid-cols-1 lg:grid-cols-2 place-items-center">
         {projects.map((p) => (
           <Project key={p.name} project={p} />
         ))}
@@ -58,7 +58,7 @@ export default async function Main() {
         </ol>
       </section> */}
 
-      <footer className="w-full text-center text-xs text-gray-500 mt-4">
+      <footer className="w-full text-center text-xs text-gray-500 mt-4 mb-2">
         © 2024 anuraag. all rights reserved.&nbsp;
         <a href="mailto::anuraag.warudkar@gmail.com" className="underline">
           contact
@@ -66,10 +66,6 @@ export default async function Main() {
         &nbsp;|&nbsp;
         <a href="/anuraag_warudkar_resume.pdf" download className="underline">
           résumé
-        </a>
-        &nbsp;|&nbsp;
-        <a href="https://linkedin.com/in/anuraagw" className="underline">
-          linkedin
         </a>
         &nbsp;|&nbsp;
         <a href="https://twitter.com/boopdotpng" className="underline">
