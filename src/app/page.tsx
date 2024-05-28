@@ -1,5 +1,6 @@
 import { IoLocationOutline } from "react-icons/io5";
 import LastFM from "@/components/LastFM";
+import { Suspense } from "react";
 
 export default async function Main() {
   return (
@@ -13,20 +14,14 @@ export default async function Main() {
           </span>
         </div>
         <div>
-          <LastFM />
+          <Suspense fallback={<div>...</div>}>
+            <LastFM />
+          </Suspense>
         </div>
       </section>
 
       <section className="w-1/2 mt-4">
-        <div className="flex justify-around mb-4">
-          <button className="p-2 border-b-2 border-transparent hover:border-[#afafaf] focus:outline-none">
-            projects
-          </button>
-          <button className="p-2 border-b-2 border-transparent hover:border-[#afafaf] focus:outline-none">
-            about
-          </button>
-        </div>
-        <div className="p-4 bg-[#1f1f1f] rounded-lg">{}</div>
+        <h2> projects </h2>
       </section>
     </main>
   );

@@ -11,8 +11,8 @@ export async function getSpotifyPlayer() {
 }
 
 export async function getLastFM() {
-  const apiKey = "a0a067dccca9d8c169ca65f3f6713abc";
-  const userName = "boop_png";
+  const apiKey = process.env.lastfm_key as string;
+  const userName = process.env.lastfm_username as string;
   const url = "http://ws.audioscrobbler.com/2.0/";
   const limit = 3;
   const params = new URLSearchParams({
@@ -26,23 +26,21 @@ export async function getLastFM() {
   try {
     const response = await fetch(`${url}?${params}`, { cache: "no-store" });
     const data = await response.json();
-
-    if (!response.ok || !data.recenttracks || !data.recenttracks.track) {
-      console.error("Error fetching recent tracks:", response.statusText);
-      return { name: "", artist: "", currentlyPlaying: false };
-    }
+    if (!response.ok) throw new Error(response.statusText);
+    if (!data.recenttracks || !data.recenttracks.track)
+      throw new Error("No tracks found");
 
     const tracks = data.recenttracks.track.map((track) => ({
       name: track.name,
       artist: track.artist["#text"],
-      currentlyPlaying: track["@attr"] && track["@attr"].nowplaying === "true",
+      currentlyPlaying:
+        !!track["@attr"] && track["@attr"].nowplaying === "true",
     }));
 
     const currentlyPlayingTrack = tracks.find(
       (track) => track.currentlyPlaying,
     );
-
-    return currentlyPlayingTrack || { ...tracks[0], currentlyPlaying: false };
+    return currentlyPlayingTrack || tracks[0]; // returns the first track if no track is currently playing
   } catch (error) {
     console.error("Error fetching recent tracks:", error);
     return { name: "", artist: "", currentlyPlaying: false };
