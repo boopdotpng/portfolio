@@ -64,7 +64,7 @@ export default async function Main() {
           contact
         </a>
         &nbsp;|&nbsp;
-        <a href="mailto::anuraag.warudkar@gmail.com" className="underline">
+        <a href="/anuraag_warudkar_resume.pdf" download className="underline">
           résumé
         </a>
         &nbsp;|&nbsp;
