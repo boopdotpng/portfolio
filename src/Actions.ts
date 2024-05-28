@@ -3,7 +3,7 @@
 export async function getSpotifyPlayer() {
   const req = await fetch(
     "https://prominent-color.vercel.app/api/getplayer?user=0",
-    { cache: "no-store" },
+    { cache: "no-store" }
   );
   // const json = await req.json();
 
@@ -15,6 +15,7 @@ export async function getLastFM() {
   const userName = process.env.lastfm_username as string;
   const url = "http://ws.audioscrobbler.com/2.0/";
   const limit = 3;
+  const maxTitleLength = 20;
   const params = new URLSearchParams({
     method: "user.getrecenttracks",
     user: userName,
@@ -31,14 +32,14 @@ export async function getLastFM() {
       throw new Error("No tracks found");
 
     const tracks = data.recenttracks.track.map((track) => ({
-      name: track.name,
+      name: track.name.substring(0, maxTitleLength),
       artist: track.artist["#text"],
       currentlyPlaying:
         !!track["@attr"] && track["@attr"].nowplaying === "true",
     }));
 
     const currentlyPlayingTrack = tracks.find(
-      (track) => track.currentlyPlaying,
+      (track) => track.currentlyPlaying
     );
     return currentlyPlayingTrack || tracks[0]; // returns the first track if no track is currently playing
   } catch (error) {
