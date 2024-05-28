@@ -1,15 +1,5 @@
 "use server";
 
-export async function getSpotifyPlayer() {
-  const req = await fetch(
-    "https://prominent-color.vercel.app/api/getplayer?user=0",
-    { cache: "no-store" }
-  );
-  // const json = await req.json();
-
-  // return json as SpotifyPlayer;
-}
-
 export async function getLastFM() {
   const apiKey = process.env.lastfm_key as string;
   const userName = process.env.lastfm_username as string;

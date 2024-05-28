@@ -45,7 +45,7 @@ export default async function Main() {
 
       <section className="w-3/4 grid sm:grid-cols-1 lg:grid-cols-2 gap-2 place-items-center">
         {projects.map((p) => (
-          <Project project={p} />
+          <Project key={p.name} project={p} />
         ))}
       </section>
       {/* <section className="w-3/4">

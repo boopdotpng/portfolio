@@ -4,7 +4,6 @@ import { MdOutlineMusicNote } from "react-icons/md";
 
 export default async function LastFM() {
   const data: Track = await getLastFM();
-  console.log(data);
 
   return (
     <div>
