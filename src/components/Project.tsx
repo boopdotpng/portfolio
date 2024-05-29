@@ -36,7 +36,7 @@ export default function Project({ project }: { project: ProjectCard }) {
           </span>
         ))}
       </div>
-      <p className="text-gray-500 text-sm">{project.desc}</p>
+      <p className="text-[#999898] text-sm">{project.desc}</p>
     </div>
   );
 }

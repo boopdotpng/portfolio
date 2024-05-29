@@ -27,7 +27,7 @@ const projects: ProjectCard[] = [
 
 export default async function Main() {
   return (
-    <main className="bg-[#121212] p-[0.5rem] text-[#afafaf] flex flex-col justify-between items-center min-h-screen">
+    <main className="bg-[#121212] p-[0.5rem] text-[#afafaf] flex flex-col md:justify-between lg:justify-between  items-center min-h-screen">
       <section className="md:w-1/2 sm:w-full flex flex-col items-center">
         <h1 className="font-extrabold text-3xl">anuraag</h1>
         <div className="text-center flex gap-1 items-center ">
@@ -48,17 +48,17 @@ export default async function Main() {
           <Project key={p.name} project={p} />
         ))}
       </section>
-      {/* <section className="w-3/4">
-        <h3 className="text-lg font-bold mb-2 text-center">future goals</h3>
+      <section className="w-3/4">
+        <h3 className="text-lg font-bold mb-2 text-center">misc. links</h3>
         <ol className="flex space-x-4">
           <li>learn ml from scratch - all the way to gpu programming</li>
           <li></li>
           <li></li>
           <li>master rust programming</li>
         </ol>
-      </section> */}
+      </section>
 
-      <footer className="w-full text-center text-xs text-gray-500 mt-4 mb-2">
+      <footer className="w-full text-center text-xs text-gray-500 mb-2">
         © 2024 anuraag. all rights reserved.&nbsp;
         <a href="mailto::anuraag.warudkar@gmail.com" className="underline">
           contact
