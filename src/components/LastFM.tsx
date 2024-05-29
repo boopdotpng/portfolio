@@ -9,10 +9,10 @@ export default async function LastFM() {
     <div>
       <p className="flex gap-1 items-center">
         {data.currentlyPlaying ? "now playing: " : "last played: "}
-        <span className="font-semibold text-amber-700">
+        <span className="font-semibold text-[#6F5060]">
           {`${data.name.toLowerCase()} - ${data.artist.toLowerCase()}`}
         </span>
-        <MdOutlineMusicNote />
+        <MdOutlineMusicNote size={20} />
       </p>
     </div>
   );
